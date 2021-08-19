@@ -36,14 +36,12 @@ function createImagesCardsMarkup(galleryItems) {
     </li>
     `;
   }).join('');
-
 }
 
 //Слушатель события на клик -'click'
 galleryContainerEl.addEventListener('click', openGalleryModal);
 refs.divModalEl.addEventListener('click', onOverlayClick);
 refs.buttonModalEl.addEventListener('click', closeGalleryModal);
-
 
 //Модальное окно для полноразмерного изображения
 //получаем url большого изображения и добавить на div.lightbox CSS-класс is-open
@@ -53,7 +51,7 @@ function openGalleryModal(e) {
     refs.imageModalEl.src = e.target.dataset.source;
     refs.divModalEl.classList.add('is-open');
     
-//слушатель события на нажатие кнопок -'keydown'
+//слушатель события на нажатие кнопок 
     window.addEventListener('keydown', onEscPress);
     window.addEventListener('keydown', onArrowLeftPress);
     window.addEventListener('keydown', onArrowRightPress);
@@ -73,7 +71,7 @@ function onEscPress(e) {
    }
 };
 
-//Удаление события
+//Удаление событий
 function closeGalleryModal(e) {
   refs.imageModalEl.src = '';
   refs.divModalEl.classList.remove('is-open');
@@ -87,8 +85,6 @@ function removeEvent () {
 };
 
 //Пролистывание влево-вправо по кл. "ArrowRight" и "ArrowLeft"
-
-
 function onArrowRightPress(e) {
   if (e.code === "ArrowRight") {
     for (let index = 0; index <= galleryItems.length; index++) {
@@ -113,3 +109,15 @@ function onArrowLeftPress(e) {
       };
    };
 }
+
+//  разобраться- переключение фотографий кликом в левой или правой части img
+
+/*
+('click', (e) => {
+  if (x > window.visualViewport.width / 2) {
+    nextImg();
+  } else {
+    prevImg ();
+  }
+});
+*/
